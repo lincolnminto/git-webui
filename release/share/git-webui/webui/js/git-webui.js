@@ -1782,7 +1782,10 @@ function MainUi() {
 $(document).ready(function () {
   const urlParams = new URLSearchParams(window.location.search);
   const paramValue = urlParams.get('locale');
-  $('body').append(`
+  $.getJSON(`/i18n/messages_${paramValue}.json`, (data) => {
+    window.i18n = data;
+
+    $('body').append(`
         <div class="modal fade" id="error-modal" tabindex="-1" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -1794,9 +1797,8 @@ $(document).ready(function () {
                 </div>
             </div>
         </div>
-`)
-  $.getJSON(`/i18n/messages_${paramValue}.json`, (data) => {
-    window.i18n = data;
+    `);
+
     new MainUi();
   });
 });
