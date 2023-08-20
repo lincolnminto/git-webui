@@ -21,5 +21,7 @@
   "TREE": "Árvore",
   "UNSTAGE": "Remover da Staging",
   "WORKING_COPY": "Cópia de Trabalho",
-  "WORKSPACE": "Espaço de Trabalho"
+  "WORKSPACE": "Espaço de Trabalho",
+  "CONTEXT": "Contexto",
+  "ERROR": "Erro"
 }

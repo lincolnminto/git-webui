@@ -1639,9 +1639,9 @@ webui.ChangedFilesView = function (workspaceView, type, label) {
       '</div>' +
       '</div>')[0];
   if (type == "working-copy") {
-    var buttons = [{name: "Stage", callback: self.process}, {name: "Cancel", callback: self.cancel}];
+    var buttons = [{name: i18n.STAGE, callback: self.process}, {name: i18n.CANCEL, callback: self.cancel}];
   } else {
-    var buttons = [{name: "Unstage", callback: self.process}];
+    var buttons = [{name: i18n.UNSTAGE, callback: self.process}];
   }
   var btnGroup = $(".btn-group", self.element);
   buttons.forEach(function (btnData) {
@@ -1782,6 +1782,19 @@ function MainUi() {
 $(document).ready(function () {
   const urlParams = new URLSearchParams(window.location.search);
   const paramValue = urlParams.get('locale');
+  $('body').append(`
+        <div class="modal fade" id="error-modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span><span class="sr-only">${i18n.CLOSE}</span></button>
+                        <h4 class="modal-title">${i18n.ERROR}</h4>
+                    </div>
+                    <pre class="modal-body alert alert-danger"></pre>
+                </div>
+            </div>
+        </div>
+`)
   $.getJSON(`/i18n/messages_${paramValue}.json`, (data) => {
     window.i18n = data;
     new MainUi();

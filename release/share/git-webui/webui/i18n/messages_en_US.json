@@ -21,5 +21,7 @@
   "TREE": "Tree",
   "UNSTAGE": "Unstage",
   "WORKING_COPY": "Working Copy",
-  "WORKSPACE": "Workspace"
+  "WORKSPACE": "Workspace",
+  "CONTEXT": "Context",
+  "ERROR": "Error"
 }
