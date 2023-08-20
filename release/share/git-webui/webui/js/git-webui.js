@@ -1782,7 +1782,7 @@ function MainUi() {
 $(document).ready(function () {
   const urlParams = new URLSearchParams(window.location.search);
   const paramValue = urlParams.get('locale');
-  $.getJSON(`i18n/message_${paramValue}.json`, (data) => {
+  $.getJSON(`/i18n/messages_${paramValue}.json`, (data) => {
     window.i18n = data;
     new MainUi();
   });
